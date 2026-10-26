@@ -1,18 +1,20 @@
 /* ============================================================
    Compilatore contratto eventi — style.css
-   Fogli A4 editabili, tipografia elegante
+   Fogli A4 editabili, tipografia elegante e ariosa
    ============================================================ */
 :root {
   --plum: #3b2c3e;
   --plum-dark: #2a1f2d;
   --rose-deep: #a86b7c;
   --steel: #5b7fa6;
-  --steel-light: #8fb0cf;
+  --steel-light: #9db8d4;
+  --azure: #5688bf;          /* azzurrino dei titoli di portata */
   --gold: #b08d57;
   --ink: #33303a;
   --muted: #7d7680;
   --line: #c9d4df;
   --line-soft: #e2e8ee;
+  --field-bg: rgba(91, 127, 166, .045);
   --paper: #ffffff;
   --serif: "Cormorant Garamond", Georgia, serif;
   --sans: "Jost", "Helvetica Neue", Arial, sans-serif;
@@ -27,8 +29,8 @@ body {
   margin: 0;
   font-family: var(--sans);
   font-weight: 300;
-  font-size: 10.5pt;
-  line-height: 1.65;
+  font-size: 11pt;
+  line-height: 1.7;
   color: var(--ink);
   background: #e9e4df;
   -webkit-font-smoothing: antialiased;
@@ -50,7 +52,7 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: .7rem 0;
+  padding: .75rem 0;
   flex-wrap: wrap;
 }
 .toolbar-brand { display: flex; align-items: center; gap: .8rem; }
@@ -100,13 +102,13 @@ body {
 .tbtn-primary:hover { background: var(--rose-deep); border-color: var(--rose-deep); color: #fff; }
 
 /* ============ SHEETS (A4) ============ */
-.sheets { padding: 2rem 0 3.5rem; }
+.sheets { padding: 2.2rem 0 3.5rem; }
 .sheet {
   width: 210mm;
   min-height: 297mm;
-  margin: 0 auto 1.6rem;
+  margin: 0 auto 1.8rem;
   background: var(--paper);
-  padding: 15mm 16mm 12mm;
+  padding: 16mm 17mm 13mm;
   box-shadow: 0 22px 55px rgba(42,31,45,.22);
   display: flex;
   flex-direction: column;
@@ -114,18 +116,18 @@ body {
 }
 
 /* ============ DOC HEAD ============ */
-.doc-head { text-align: center; margin-bottom: 1.1rem; }
-.doc-logo { width: 118px; height: auto; margin: 0 auto .35rem; }
-.doc-head--small { margin-bottom: .8rem; }
-.doc-head--small .doc-logo { width: 82px; }
+.doc-head { text-align: center; margin-bottom: 1.2rem; }
+.doc-logo { width: 104px; height: auto; margin: 0 auto .3rem; }
+.doc-head--small { margin-bottom: 1rem; }
+.doc-head--small .doc-logo { width: 78px; }
 .doc-title {
   font-family: var(--serif);
   font-weight: 600;
-  font-size: 24pt;
+  font-size: 23pt;
   letter-spacing: .42em;
   text-transform: uppercase;
   color: var(--plum);
-  margin: .2rem 0 0;
+  margin: .25rem 0 0;
   padding-left: .42em; /* compensazione ottica letter-spacing */
 }
 
@@ -135,31 +137,31 @@ body {
   justify-content: space-between;
   gap: 1.5rem;
   border-top: 1.5px solid var(--steel-light);
-  padding-top: .7rem;
-  margin-bottom: 1.2rem;
+  padding-top: .75rem;
+  margin-bottom: 1.25rem;
   flex-wrap: wrap;
 }
-.ref-item { display: flex; align-items: center; gap: .5rem; flex: 1; }
+.ref-item { display: flex; align-items: center; gap: .55rem; flex: 1; }
 .ref-item--right { justify-content: flex-end; }
 .ref-item label {
-  font-size: 9pt;
+  font-size: 9.5pt;
   font-weight: 500;
   color: var(--plum);
   white-space: nowrap;
 }
 
 /* ============ SEZIONI ============ */
-.doc-section { margin-bottom: .9rem; }
+.doc-section { margin-bottom: 1.15rem; }
 .section-title {
   font-family: var(--serif);
   font-weight: 600;
-  font-size: 13.5pt;
+  font-size: 14pt;
   letter-spacing: .06em;
   text-transform: uppercase;
   color: var(--steel);
   border-bottom: 1.5px solid var(--steel-light);
-  padding-bottom: .28rem;
-  margin: 0 0 .8rem;
+  padding-bottom: .32rem;
+  margin: 0 0 .9rem;
   display: flex;
   gap: .55rem;
   align-items: baseline;
@@ -168,17 +170,17 @@ body {
 .sub-title {
   font-family: var(--serif);
   font-weight: 600;
-  font-size: 11pt;
+  font-size: 11.5pt;
   letter-spacing: .05em;
   text-transform: uppercase;
   color: var(--steel);
-  margin: 1rem 0 .6rem;
+  margin: 1.15rem 0 .7rem;
 }
 .hint {
   font-family: var(--sans);
   font-style: italic;
   font-weight: 300;
-  font-size: 8.5pt;
+  font-size: 8.8pt;
   color: var(--muted);
   text-transform: none;
   letter-spacing: 0;
@@ -187,32 +189,36 @@ body {
 .cols-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.4rem;
+  gap: 1.8rem;
 }
 .company-box {
   background: #f6f8fb;
   border-left: 3px solid var(--steel-light);
-  padding: .65rem .8rem;
-  margin-bottom: .9rem;
+  padding: .75rem .95rem;
+  margin-bottom: 1rem;
   border-radius: 0 4px 4px 0;
 }
-.company-box p { margin: 0; font-size: 9pt; line-height: 1.6; color: #4c5560; }
+.company-box p { margin: 0; font-size: 9.3pt; line-height: 1.65; color: #4c5560; }
 .company-box strong { color: var(--plum); font-weight: 500; }
 
 /* ============ CAMPI EDITABILI ============ */
 .line-field {
   display: flex;
   align-items: center;
-  gap: .5rem;
-  margin-bottom: .5rem;
+  gap: .55rem;
+  margin-bottom: .62rem;
 }
 .line-field label {
-  font-size: 9.5pt;
+  font-size: 9.8pt;
   font-weight: 500;
   color: var(--plum);
   white-space: nowrap;
   min-width: fit-content;
 }
+/* Etichette allineate nelle due colonne dati: i campi respirano tutti uguali */
+.cols-2 .line-field label { flex: 0 0 30mm; }
+.cols-2 .line-field input { flex: 1; }
+
 .line-field input,
 .line-field textarea,
 .ref-item input,
@@ -220,13 +226,13 @@ body {
 .acconti-table input {
   font-family: var(--sans);
   font-weight: 300;
-  font-size: 10pt;
+  font-size: 10.3pt;
   color: var(--ink);
   border: 0;
   border-bottom: 1px solid var(--line);
-  background: rgba(91,127,166,.05);
+  background: var(--field-bg);
   border-radius: 2px 2px 0 0;
-  padding: .32rem .5rem;
+  padding: .38rem .55rem;
   flex: 1;
   min-width: 0;
   transition: background .2s, border-color .2s, box-shadow .2s;
@@ -237,7 +243,7 @@ body {
   resize: vertical;
   border: 1px solid var(--line);
   border-radius: 3px;
-  min-height: 70px;
+  min-height: 82px;
 }
 input::placeholder, textarea::placeholder { color: #a9b3bd; font-style: italic; }
 input:focus, textarea:focus, [contenteditable]:focus {
@@ -247,71 +253,98 @@ input:focus, textarea:focus, [contenteditable]:focus {
   box-shadow: 0 2px 0 0 var(--gold);
 }
 textarea:focus { box-shadow: 0 0 0 2px rgba(176,141,87,.25); }
-.w-xxs { width: 52px; flex: none; text-align: center; }
-.w-xs { width: 86px; flex: none; text-align: center; }
-.w-sm { width: 105px; flex: none; }
-.w-md { width: 130px; flex: none; }
+.w-xxs { width: 62px; flex: none; text-align: center; }
+.w-xs { width: 96px; flex: none; text-align: center; }
+.w-sm { width: 112px; flex: none; }
+.w-md { width: 138px; flex: none; }
 
 /* ============ MENU ============ */
-.menu-section { margin-top: .4rem; }
-.menu-wrap { display: grid; grid-template-columns: 22mm 1fr; gap: .6rem; }
+.menu-section { margin-top: .2rem; }
+.menu-wrap {
+  display: grid;
+  grid-template-columns: 24mm 1fr;
+  gap: 2.2mm;
+  border: 1px solid var(--line-soft);
+  border-radius: 6px;
+  padding: 1.1rem 1.2rem;
+  background: linear-gradient(180deg, #fcfdfe, #ffffff);
+}
 .menu-side {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
   text-align: right;
-  padding-right: .7rem;
+  padding-right: .8rem;
   border-right: 1px solid var(--line-soft);
 }
 .menu-side span {
   font-family: var(--harrington);
-  font-size: 11pt;
+  font-size: 12pt;
   color: #4a4550;
-  line-height: 1.3;
+  line-height: 1.35;
   letter-spacing: .01em;
 }
 .menu-editable {
   font-family: var(--harrington);
   text-align: center;
   border-radius: 4px;
-  padding: .35rem .5rem;
+  padding: .2rem .8rem;
   transition: background .2s;
-  min-height: 40mm;
   color: #33303a;
 }
 .menu-editable:hover { background: #faf8f4; }
 .menu-editable h3 {
   font-family: var(--harrington);
   font-weight: 400;
-  font-size: 10pt;
+  font-size: 11.8pt;
   letter-spacing: .02em;
-  color: var(--plum);
-  margin: .5rem 0 .1rem;
+  color: var(--azure);
+  margin: .72rem 0 .14rem;
 }
 .menu-editable h3:first-child { margin-top: 0; }
-.menu-editable p { margin: 0 0 .15rem; font-size: 7.8pt; line-height: 1.28; }
+.menu-editable p { margin: 0 0 .22rem; font-size: 8.6pt; line-height: 1.42; }
 
-/* ============ INVITATI ============ */
+/* ============ INVITATI / PREZZI / RIEPILOGO ============ */
 .invitati-row,
-.price-row,
-.riepilogo {
+.price-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.4rem;
+  gap: 1.8rem;
 }
-.riepilogo { grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: .8rem; }
-.euro { display: flex; align-items: center; gap: .25rem; flex: 1; }
+.invitati-row .line-field,
+.price-row .line-field {
+  flex-direction: column;
+  align-items: stretch;
+  gap: .3rem;
+}
+.invitati-row .line-field label,
+.price-row .line-field label { white-space: normal; }
+.riepilogo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+  margin-bottom: 1rem;
+}
+.riepilogo .line-field {
+  flex-direction: column;
+  align-items: stretch;
+  gap: .3rem;
+  margin-bottom: 0;
+}
+.riepilogo .line-field label { white-space: normal; }
+.euro { display: flex; align-items: center; gap: .35rem; flex: 1; }
 .euro input { flex: 1; }
-.line-field--top { align-items: flex-start; flex-direction: column; gap: .35rem; }
+.line-field--top { align-items: flex-start; flex-direction: column; gap: .4rem; }
 .line-field--top label { white-space: normal; }
 
 /* ============ CONDIZIONI ============ */
-.conditions ul { margin: 0; padding-left: 1.15rem; }
-.conditions li { margin-bottom: .55rem; text-align: justify; }
+.conditions ul { margin: 0; padding-left: 1.25rem; }
+.conditions li { margin-bottom: .68rem; text-align: justify; line-height: 1.62; }
 .cond-lead {
   font-weight: 500;
   color: var(--plum);
-  margin: 0 0 .6rem;
+  margin: 0 0 .75rem;
+  font-size: 11.5pt;
 }
 .inline {
   display: inline-block;
@@ -319,10 +352,10 @@ textarea:focus { box-shadow: 0 0 0 2px rgba(176,141,87,.25); }
   border-bottom: 1px solid var(--line);
   background: rgba(91,127,166,.06);
   border-radius: 2px 2px 0 0;
-  padding: .1rem .35rem;
+  padding: .12rem .4rem;
   font-family: var(--sans);
   font-weight: 400;
-  font-size: 9.5pt;
+  font-size: 9.8pt;
   color: var(--steel);
   text-align: center;
   margin: 0 .15rem;
@@ -330,55 +363,56 @@ textarea:focus { box-shadow: 0 0 0 2px rgba(176,141,87,.25); }
 .inline:focus { outline: none; border-color: var(--gold); background: rgba(176,141,87,.1); }
 
 /* ============ TABELLA ACCONTI ============ */
+.table-scroll { overflow-x: auto; }
 .acconti-table {
   width: 100%;
   border-collapse: collapse;
-  margin: .6rem 0 .4rem;
-  font-size: 9pt;
+  margin: .7rem 0 .5rem;
+  font-size: 9.5pt;
 }
 .acconti-table th {
   background: #f2f6fa;
   color: var(--steel);
   font-family: var(--sans);
   font-weight: 500;
-  font-size: 8.5pt;
+  font-size: 8.8pt;
   letter-spacing: .08em;
   text-transform: uppercase;
-  padding: .5rem .55rem;
+  padding: .65rem .6rem;
   border: 1px solid var(--line);
   text-align: left;
 }
 .acconti-table td {
   border: 1px solid var(--line);
-  padding: .45rem .5rem;
+  padding: .6rem .6rem;
   vertical-align: middle;
 }
-.acconti-table .voce { font-size: 8.8pt; color: var(--plum); font-weight: 400; }
+.acconti-table .voce { font-size: 9.2pt; color: var(--plum); font-weight: 400; }
 .acconti-table input {
   border: 0;
   border-bottom: 1px solid var(--line);
   background: transparent;
-  padding: .25rem .35rem;
+  padding: .3rem .35rem;
   width: 100%;
-  font-size: 9pt;
+  font-size: 9.5pt;
 }
 
 /* ============ FIRME ============ */
-.firma-data { margin-bottom: .5rem; }
+.firma-data { margin-bottom: .6rem; }
 .comma { color: var(--muted); }
-.allegati { font-size: 9.5pt; margin: .5rem 0 1.2rem; }
+.allegati { font-size: 10pt; margin: .6rem 0 1.5rem; }
 .firme {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2.2rem;
-  margin-top: .8rem;
+  gap: 2.6rem;
+  margin-top: 1rem;
 }
 .firma-box p {
   font-family: var(--serif);
   font-weight: 600;
-  font-size: 11pt;
+  font-size: 11.5pt;
   color: var(--plum);
-  margin: 0 0 2.6rem;
+  margin: 0 0 3rem;
 }
 .firma-line {
   border-bottom: 1.2px solid var(--ink);
@@ -388,41 +422,60 @@ textarea:focus { box-shadow: 0 0 0 2px rgba(176,141,87,.25); }
 /* ============ FOOTER FOGLIO ============ */
 .sheet-footer {
   margin-top: auto;
-  padding-top: .8rem;
+  padding-top: .9rem;
   border-top: 1px solid var(--line-soft);
   display: flex;
   justify-content: space-between;
   gap: 1rem;
   font-family: var(--harrington);
-  font-size: 9.5pt;
+  font-size: 10pt;
   color: #5b6677;
   letter-spacing: .01em;
 }
-.sheet-footer span:last-child { white-space: nowrap; font-family: var(--sans); font-size: 8pt; }
+.sheet-footer span:last-child { white-space: nowrap; font-family: var(--sans); font-size: 8.5pt; }
 
 /* ============ RESPONSIVE (schermo) ============ */
 @media (max-width: 860px) {
-  body { font-size: 10pt; }
-  .sheet { width: 96%; min-height: 0; padding: 1.4rem 1.1rem; }
+  body { font-size: 10.5pt; }
+  .sheet {
+    width: 94%;
+    min-height: 0;
+    padding: 1.7rem 1.25rem 1.4rem;
+    margin-bottom: 1.2rem;
+  }
   .cols-2, .invitati-row, .price-row { grid-template-columns: 1fr; gap: 0; }
-  .riepilogo { grid-template-columns: 1fr; gap: 0; }
-  .firme { grid-template-columns: 1fr; gap: 1.4rem; }
-  .menu-wrap { grid-template-columns: 1fr; }
+  .riepilogo { grid-template-columns: 1fr; gap: .8rem; }
+  .cols-2 .line-field label { flex: 0 1 auto; }
+  .firme { grid-template-columns: 1fr; gap: 1.8rem; }
+  .firma-box p { margin-bottom: 2.2rem; }
+  .menu-wrap { grid-template-columns: 1fr; padding: 1rem; gap: .8rem; }
   .menu-side {
     flex-direction: row;
     justify-content: space-between;
     border-right: 0;
     border-bottom: 1px solid var(--line-soft);
-    padding: 0 0 .5rem;
+    padding: 0 0 .6rem;
     text-align: left;
   }
-  .ref-row { flex-direction: column; gap: .6rem; }
-  .ref-item--right { justify-content: flex-start; }
+  .menu-editable { padding: .4rem 0; }
+  .ref-row { flex-direction: column; gap: .7rem; }
+  .ref-item--right { justify-content: flex-start; flex-wrap: wrap; }
   .toolbar-inner { justify-content: center; text-align: center; }
-  .sheet-footer { flex-direction: column; gap: .2rem; }
+  .sheet-footer { flex-direction: column; gap: .25rem; }
+  /* Evita lo zoom automatico di iOS sui campi */
+  .line-field input,
+  .line-field textarea,
+  .ref-item input,
+  .acconti-table input,
+  .inline { font-size: 16px; }
+  .menu-editable p { font-size: 9.5pt; }
+  .menu-editable h3 { font-size: 13pt; }
+  .acconti-table { min-width: 560px; }
 }
 
-/* ============ STAMPA / PDF ============ */
+/* ============ STAMPA / PDF ============
+   A schermo il documento resta arioso; in stampa si compatta
+   per garantire le 2 pagine A4 senza traboccamenti. */
 @page { size: A4; margin: 0; }
 
 @media print {
@@ -434,13 +487,42 @@ textarea:focus { box-shadow: 0 0 0 2px rgba(176,141,87,.25); }
     min-height: 297mm;
     margin: 0;
     box-shadow: none;
-    padding: 13mm 14mm 10mm;
+    padding: 12mm 14mm 10mm;
     page-break-after: always;
     break-after: page;
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
   }
   .sheet:last-child { page-break-after: auto; break-after: auto; }
+
+  /* Compattazione verticale controllata */
+  .doc-section { margin-bottom: .7rem; }
+  .doc-head { margin-bottom: .8rem; }
+  .doc-logo { width: 92px; }
+  .doc-head--small .doc-logo { width: 70px; }
+  .doc-title { font-size: 21pt; }
+  .ref-row { margin-bottom: .9rem; }
+  .line-field { margin-bottom: .42rem; }
+  .line-field input { padding: .28rem .45rem; }
+  .company-box { padding: .55rem .75rem; margin-bottom: .75rem; }
+  .section-title { margin-bottom: .6rem; }
+
+  /* Menu: misure collaudate per il foglio A4 */
+  .menu-wrap { padding: .55rem .7rem; gap: 2mm; }
+  .menu-side span { font-size: 10.5pt; }
+  .menu-editable { padding: .1rem .5rem; }
+  .menu-editable h3 { font-size: 10pt; margin: .42rem 0 .08rem; }
+  .menu-editable p { font-size: 7.8pt; line-height: 1.28; margin-bottom: .12rem; }
+
+  /* Pagina 2 */
+  .conditions li { margin-bottom: .48rem; line-height: 1.5; }
+  .cond-lead { margin-bottom: .55rem; }
+  .acconti-table th, .acconti-table td { padding: .42rem .45rem; }
+  .line-field textarea { min-height: 58px; }
+  .firma-box p { margin-bottom: 2.1rem; }
+  .firme { gap: 2rem; margin-top: .6rem; }
+  .allegati { margin: .4rem 0 1rem; }
+
   .line-field input,
   .line-field textarea,
   .ref-item input,
@@ -450,7 +532,7 @@ textarea:focus { box-shadow: 0 0 0 2px rgba(176,141,87,.25); }
     background: transparent !important;
     box-shadow: none !important;
   }
-  .menu-editable { background: transparent !important; }
-  .company-box, .acconti-table th { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  .menu-editable, .menu-wrap { background: #fff !important; }
+  .company-box, .acconti-table th, .menu-wrap { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
   a[href]::after { content: ""; }
 }
