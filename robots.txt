@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /modulo/
+Disallow: /contratto/
 
 Sitemap: https://CzekUns.github.io/poggioruppelt/sitemap.xml
