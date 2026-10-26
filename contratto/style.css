@@ -16,6 +16,9 @@
   --paper: #ffffff;
   --serif: "Cormorant Garamond", Georgia, serif;
   --sans: "Jost", "Helvetica Neue", Arial, sans-serif;
+  /* Harrington è il font del contratto originale: di sistema su Windows/Office.
+     Sugli altri dispositivi cade sul calligrafico web più vicino. */
+  --harrington: "Harrington", "Quintessential", "Great Vibes", cursive;
 }
 
 * { box-sizing: border-box; }
@@ -146,7 +149,7 @@ body {
 }
 
 /* ============ SEZIONI ============ */
-.doc-section { margin-bottom: 1.15rem; }
+.doc-section { margin-bottom: .9rem; }
 .section-title {
   font-family: var(--serif);
   font-weight: 600;
@@ -251,7 +254,7 @@ textarea:focus { box-shadow: 0 0 0 2px rgba(176,141,87,.25); }
 
 /* ============ MENU ============ */
 .menu-section { margin-top: .4rem; }
-.menu-wrap { display: grid; grid-template-columns: 26mm 1fr; gap: .8rem; }
+.menu-wrap { display: grid; grid-template-columns: 22mm 1fr; gap: .6rem; }
 .menu-side {
   display: flex;
   flex-direction: column;
@@ -261,31 +264,32 @@ textarea:focus { box-shadow: 0 0 0 2px rgba(176,141,87,.25); }
   border-right: 1px solid var(--line-soft);
 }
 .menu-side span {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 10.5pt;
-  color: var(--muted);
-  line-height: 1.35;
+  font-family: var(--harrington);
+  font-size: 11pt;
+  color: #4a4550;
+  line-height: 1.3;
+  letter-spacing: .01em;
 }
 .menu-editable {
+  font-family: var(--harrington);
   text-align: center;
   border-radius: 4px;
-  padding: .4rem .6rem;
+  padding: .35rem .5rem;
   transition: background .2s;
   min-height: 40mm;
+  color: #33303a;
 }
 .menu-editable:hover { background: #faf8f4; }
 .menu-editable h3 {
-  font-family: var(--serif);
-  font-weight: 600;
-  font-size: 11.5pt;
-  letter-spacing: .12em;
-  text-transform: uppercase;
+  font-family: var(--harrington);
+  font-weight: 400;
+  font-size: 10pt;
+  letter-spacing: .02em;
   color: var(--plum);
-  margin: .75rem 0 .25rem;
+  margin: .5rem 0 .1rem;
 }
 .menu-editable h3:first-child { margin-top: 0; }
-.menu-editable p { margin: 0 0 .35rem; font-size: 9.5pt; line-height: 1.55; }
+.menu-editable p { margin: 0 0 .15rem; font-size: 7.8pt; line-height: 1.28; }
 
 /* ============ INVITATI ============ */
 .invitati-row,
@@ -389,11 +393,12 @@ textarea:focus { box-shadow: 0 0 0 2px rgba(176,141,87,.25); }
   display: flex;
   justify-content: space-between;
   gap: 1rem;
-  font-size: 8pt;
-  color: var(--muted);
-  letter-spacing: .03em;
+  font-family: var(--harrington);
+  font-size: 9.5pt;
+  color: #5b6677;
+  letter-spacing: .01em;
 }
-.sheet-footer span:last-child { white-space: nowrap; }
+.sheet-footer span:last-child { white-space: nowrap; font-family: var(--sans); font-size: 8pt; }
 
 /* ============ RESPONSIVE (schermo) ============ */
 @media (max-width: 860px) {

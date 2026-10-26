@@ -51,7 +51,11 @@ In alternativa è pubblicabile così com'è su Netlify, Vercel o qualsiasi hosti
 Due strumenti dimostrativi, raggiungibili solo conoscendo l'URL e bloccati ai motori di ricerca (`robots.txt`, `noindex`):
 
 - **`/modulo/`** — raccoglitore «Dove ci hai trovato»: scheda per ciascun ospite con canale di provenienza (Instagram, Facebook, Google, passaparola…), contatori per canale, elenco filtrabile, export CSV. I dati restano nel `localStorage` del browser; al primo avvio carica alcuni record di esempio.
-- **`/contratto/`** — compilatore del contratto eventi: replica delle 2 pagine A4 del modulo ufficiale con tipografia elegante (Cormorant Garamond + Jost), tutti i campi editabili, menu modificabile, salvataggio bozza nel browser (anche automatico) e pulsante **Stampa / Salva PDF** con fogli A4 fedeli all'originale.
+- **`/contratto/`** — compilatore del contratto eventi: replica delle 2 pagine A4 del modulo ufficiale con tipografia elegante (Cormorant Garamond + Jost), tutti i campi editabili, menu modificabile, salvataggio bozza nel browser (anche automatico) e pulsante **Stampa / Salva PDF** con fogli A4 fedeli all'originale. La sezione menu, le etichette laterali e il piè di pagina usano il font **Harrington** del contratto cartaceo (font di sistema Windows/Office); sui dispositivi che non lo possiedono cade automaticamente sul calligrafico web *Quintessential* (con *Great Vibes* come ulteriore fallback).
+
+## Dati ufficiali della società
+
+Ristorante Dal Tedesco srl · Via Bagni di Tritoli, 20/22 – 80070 Baia Bacoli (NA) · P.IVA 03725550630 · Tel. 081 8687175 · poggioruppelt@gmail.com
 
 Entrambe funzionano senza backend e senza dipendenze.
 
