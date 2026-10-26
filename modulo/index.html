@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dove ci hai trovato — Poggio Ruppelt (demo)</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Barra superiore -->
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a href="../index.html" class="brand">
+        <img src="../assets/images/logo-poggio-ruppelt-bianco.png" alt="Poggio Ruppelt" width="40" height="40">
+        <span>
+          <strong>Poggio Ruppelt</strong>
+          <em>Raccoglitore ospiti</em>
+        </span>
+      </a>
+      <span class="demo-badge">Versione dimostrativa</span>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <!-- Intestazione -->
+    <section class="page-head">
+      <p class="eyebrow">Accoglienza ospiti</p>
+      <h1>Dove ci hai <em>trovato</em>?</h1>
+      <p class="subtitle">Per ogni ospite che arriva, compila la scheda: il sistema aggiorna in tempo reale i canali di provenienza. I dati restano salvati in questo browser e possono essere esportati in CSV.</p>
+    </section>
+
+    <div class="layout">
+
+      <!-- ===== Form scheda ospite ===== -->
+      <form class="card form-card" id="guestForm" novalidate>
+        <h2 class="card-title">Nuova scheda ospite</h2>
+
+        <div class="grid-2">
+          <div class="field">
+            <label for="f-nome">Nome *</label>
+            <input type="text" id="f-nome" name="nome" required placeholder="es. Giulia">
+          </div>
+          <div class="field">
+            <label for="f-cognome">Cognome *</label>
+            <input type="text" id="f-cognome" name="cognome" required placeholder="es. Rossi">
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="field">
+            <label for="f-tavolo">Tavolo n.</label>
+            <input type="text" id="f-tavolo" name="tavolo" placeholder="es. 9">
+          </div>
+          <div class="field">
+            <label for="f-data">Data</label>
+            <input type="date" id="f-data" name="data">
+          </div>
+        </div>
+
+        <fieldset class="field">
+          <legend>Canale di provenienza *</legend>
+          <div class="channels" id="channels">
+            <label class="channel">
+              <input type="radio" name="canale" value="Instagram" required>
+              <span class="channel-box">
+                <span class="channel-ico" style="--c:#c1558b">IG</span>
+                <span>Instagram</span>
+              </span>
+            </label>
+            <label class="channel">
+              <input type="radio" name="canale" value="Facebook">
+              <span class="channel-box">
+                <span class="channel-ico" style="--c:#3f5d9c">FB</span>
+                <span>Facebook</span>
+              </span>
+            </label>
+            <label class="channel">
+              <input type="radio" name="canale" value="Google">
+              <span class="channel-box">
+                <span class="channel-ico" style="--c:#4a8f5b">G</span>
+                <span>Google</span>
+              </span>
+            </label>
+            <label class="channel">
+              <input type="radio" name="canale" value="Passaparola">
+              <span class="channel-box">
+                <span class="channel-ico" style="--c:#b08d57">PP</span>
+                <span>Passaparola</span>
+              </span>
+            </label>
+            <label class="channel">
+              <input type="radio" name="canale" value="Sito web">
+              <span class="channel-box">
+                <span class="channel-ico" style="--c:#5b7fa6">W</span>
+                <span>Sito web</span>
+              </span>
+            </label>
+            <label class="channel">
+              <input type="radio" name="canale" value="Matrimonio.com">
+              <span class="channel-box">
+                <span class="channel-ico" style="--c:#a86b7c">M</span>
+                <span>Matrimonio.com</span>
+              </span>
+            </label>
+            <label class="channel">
+              <input type="radio" name="canale" value="Fiera / evento">
+              <span class="channel-box">
+                <span class="channel-ico" style="--c:#7e8f74">F</span>
+                <span>Fiera / evento</span>
+              </span>
+            </label>
+            <label class="channel">
+              <input type="radio" name="canale" value="Altro">
+              <span class="channel-box">
+                <span class="channel-ico" style="--c:#8a7a96">+</span>
+                <span>Altro</span>
+              </span>
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="field">
+          <label for="f-nota">Nota / specifica</label>
+          <textarea id="f-nota" name="nota" rows="2" placeholder="Se il canale è «Altro», indica qui dove ci ha conosciuti…"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Aggiungi ospite</button>
+        <p class="form-msg" id="formMsg" role="status" aria-live="polite"></p>
+      </form>
+
+      <!-- ===== Riepilogo statistiche ===== -->
+      <section class="card stats-card">
+        <h2 class="card-title">Riepilogo canali</h2>
+        <div class="total-box">
+          <span class="total-num" id="totalGuests">0</span>
+          <span class="total-label">schede ospiti raccolte</span>
+        </div>
+        <ul class="stats-list" id="statsList"></ul>
+        <div class="stats-actions">
+          <button type="button" class="btn btn-ghost" id="exportCsv">Esporta CSV</button>
+          <button type="button" class="btn btn-ghost btn-danger" id="clearAll">Azzera tutto</button>
+        </div>
+      </section>
+    </div>
+
+    <!-- ===== Elenco ospiti ===== -->
+    <section class="card list-card">
+      <div class="list-head">
+        <h2 class="card-title">Elenco ospiti</h2>
+        <div class="filters">
+          <input type="search" id="searchInput" placeholder="Cerca nome…">
+          <select id="channelFilter">
+            <option value="">Tutti i canali</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Data</th>
+              <th>Ospite</th>
+              <th>Tavolo</th>
+              <th>Canale</th>
+              <th>Nota</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="guestRows"></tbody>
+        </table>
+        <p class="empty" id="emptyState">Nessuna scheda ospite: aggiungi la prima usando il modulo.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>Poggio Ruppelt · dal Tedesco 1930 — pagina dimostrativa, non collegata al sito pubblico</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -46,6 +46,15 @@ const FORM_ENDPOINT = "https://formspree.io/f/xxxxxxxx";
 
 In alternativa è pubblicabile così com'è su Netlify, Vercel o qualsiasi hosting statico.
 
+## Pagine demo interne (non linkate dal sito pubblico)
+
+Due strumenti dimostrativi, raggiungibili solo conoscendo l'URL e bloccati ai motori di ricerca (`robots.txt`, `noindex`):
+
+- **`/modulo/`** — raccoglitore «Dove ci hai trovato»: scheda per ciascun ospite con canale di provenienza (Instagram, Facebook, Google, passaparola…), contatori per canale, elenco filtrabile, export CSV. I dati restano nel `localStorage` del browser; al primo avvio carica alcuni record di esempio.
+- **`/contratto/`** — compilatore del contratto eventi: replica delle 2 pagine A4 del modulo ufficiale con tipografia elegante (Cormorant Garamond + Jost), tutti i campi editabili, menu modificabile, salvataggio bozza nel browser (anche automatico) e pulsante **Stampa / Salva PDF** con fogli A4 fedeli all'originale.
+
+Entrambe funzionano senza backend e senza dipendenze.
+
 ## Crediti fotografici
 
 Foto e marchio forniti dalla proprietà (Poggio Ruppelt), utilizzati per questo progetto.

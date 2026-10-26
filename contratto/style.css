@@ -1,0 +1,451 @@
+/* ============================================================
+   Compilatore contratto eventi — style.css
+   Fogli A4 editabili, tipografia elegante
+   ============================================================ */
+:root {
+  --plum: #3b2c3e;
+  --plum-dark: #2a1f2d;
+  --rose-deep: #a86b7c;
+  --steel: #5b7fa6;
+  --steel-light: #8fb0cf;
+  --gold: #b08d57;
+  --ink: #33303a;
+  --muted: #7d7680;
+  --line: #c9d4df;
+  --line-soft: #e2e8ee;
+  --paper: #ffffff;
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans: "Jost", "Helvetica Neue", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 10.5pt;
+  line-height: 1.65;
+  color: var(--ink);
+  background: #e9e4df;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============ TOOLBAR ============ */
+.toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: linear-gradient(120deg, var(--plum-dark), var(--plum));
+  color: #fff;
+  box-shadow: 0 8px 26px rgba(42,31,45,.35);
+}
+.toolbar-inner {
+  width: min(1240px, 94%);
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .7rem 0;
+  flex-wrap: wrap;
+}
+.toolbar-brand { display: flex; align-items: center; gap: .8rem; }
+.toolbar-brand img { width: 34px; height: 34px; object-fit: contain; }
+.toolbar-brand strong {
+  display: block;
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  line-height: 1.1;
+}
+.toolbar-brand span {
+  display: block;
+  font-size: .72rem;
+  letter-spacing: .12em;
+  opacity: .75;
+  font-style: italic;
+  font-family: var(--serif);
+}
+.toolbar-actions { display: flex; gap: .6rem; flex-wrap: wrap; }
+.tbtn {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-family: var(--sans);
+  font-size: .72rem;
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  padding: .65rem 1.15rem;
+  border-radius: 3px;
+  border: 1px solid rgba(255,255,255,.45);
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  transition: background .25s, border-color .25s, transform .2s;
+}
+.tbtn svg { width: 16px; height: 16px; }
+.tbtn:hover { background: rgba(255,255,255,.14); border-color: #fff; }
+.tbtn:active { transform: translateY(1px); }
+.tbtn-primary {
+  background: #fff;
+  color: var(--plum);
+  border-color: #fff;
+}
+.tbtn-primary:hover { background: var(--rose-deep); border-color: var(--rose-deep); color: #fff; }
+
+/* ============ SHEETS (A4) ============ */
+.sheets { padding: 2rem 0 3.5rem; }
+.sheet {
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto 1.6rem;
+  background: var(--paper);
+  padding: 15mm 16mm 12mm;
+  box-shadow: 0 22px 55px rgba(42,31,45,.22);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* ============ DOC HEAD ============ */
+.doc-head { text-align: center; margin-bottom: 1.1rem; }
+.doc-logo { width: 118px; height: auto; margin: 0 auto .35rem; }
+.doc-head--small { margin-bottom: .8rem; }
+.doc-head--small .doc-logo { width: 82px; }
+.doc-title {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 24pt;
+  letter-spacing: .42em;
+  text-transform: uppercase;
+  color: var(--plum);
+  margin: .2rem 0 0;
+  padding-left: .42em; /* compensazione ottica letter-spacing */
+}
+
+/* ============ RIFERIMENTI ============ */
+.ref-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  border-top: 1.5px solid var(--steel-light);
+  padding-top: .7rem;
+  margin-bottom: 1.2rem;
+  flex-wrap: wrap;
+}
+.ref-item { display: flex; align-items: center; gap: .5rem; flex: 1; }
+.ref-item--right { justify-content: flex-end; }
+.ref-item label {
+  font-size: 9pt;
+  font-weight: 500;
+  color: var(--plum);
+  white-space: nowrap;
+}
+
+/* ============ SEZIONI ============ */
+.doc-section { margin-bottom: 1.15rem; }
+.section-title {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 13.5pt;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--steel);
+  border-bottom: 1.5px solid var(--steel-light);
+  padding-bottom: .28rem;
+  margin: 0 0 .8rem;
+  display: flex;
+  gap: .55rem;
+  align-items: baseline;
+}
+.section-title span { color: var(--rose-deep); }
+.sub-title {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 11pt;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--steel);
+  margin: 1rem 0 .6rem;
+}
+.hint {
+  font-family: var(--sans);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 8.5pt;
+  color: var(--muted);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.cols-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.4rem;
+}
+.company-box {
+  background: #f6f8fb;
+  border-left: 3px solid var(--steel-light);
+  padding: .65rem .8rem;
+  margin-bottom: .9rem;
+  border-radius: 0 4px 4px 0;
+}
+.company-box p { margin: 0; font-size: 9pt; line-height: 1.6; color: #4c5560; }
+.company-box strong { color: var(--plum); font-weight: 500; }
+
+/* ============ CAMPI EDITABILI ============ */
+.line-field {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  margin-bottom: .5rem;
+}
+.line-field label {
+  font-size: 9.5pt;
+  font-weight: 500;
+  color: var(--plum);
+  white-space: nowrap;
+  min-width: fit-content;
+}
+.line-field input,
+.line-field textarea,
+.ref-item input,
+.euro input,
+.acconti-table input {
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 10pt;
+  color: var(--ink);
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: rgba(91,127,166,.05);
+  border-radius: 2px 2px 0 0;
+  padding: .32rem .5rem;
+  flex: 1;
+  min-width: 0;
+  transition: background .2s, border-color .2s, box-shadow .2s;
+}
+.line-field textarea {
+  width: 100%;
+  flex: none;
+  resize: vertical;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  min-height: 70px;
+}
+input::placeholder, textarea::placeholder { color: #a9b3bd; font-style: italic; }
+input:focus, textarea:focus, [contenteditable]:focus {
+  outline: none;
+  border-color: var(--gold);
+  background: rgba(176,141,87,.08);
+  box-shadow: 0 2px 0 0 var(--gold);
+}
+textarea:focus { box-shadow: 0 0 0 2px rgba(176,141,87,.25); }
+.w-xxs { width: 52px; flex: none; text-align: center; }
+.w-xs { width: 86px; flex: none; text-align: center; }
+.w-sm { width: 105px; flex: none; }
+.w-md { width: 130px; flex: none; }
+
+/* ============ MENU ============ */
+.menu-section { margin-top: .4rem; }
+.menu-wrap { display: grid; grid-template-columns: 26mm 1fr; gap: .8rem; }
+.menu-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: right;
+  padding-right: .7rem;
+  border-right: 1px solid var(--line-soft);
+}
+.menu-side span {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 10.5pt;
+  color: var(--muted);
+  line-height: 1.35;
+}
+.menu-editable {
+  text-align: center;
+  border-radius: 4px;
+  padding: .4rem .6rem;
+  transition: background .2s;
+  min-height: 40mm;
+}
+.menu-editable:hover { background: #faf8f4; }
+.menu-editable h3 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 11.5pt;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--plum);
+  margin: .75rem 0 .25rem;
+}
+.menu-editable h3:first-child { margin-top: 0; }
+.menu-editable p { margin: 0 0 .35rem; font-size: 9.5pt; line-height: 1.55; }
+
+/* ============ INVITATI ============ */
+.invitati-row,
+.price-row,
+.riepilogo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.4rem;
+}
+.riepilogo { grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: .8rem; }
+.euro { display: flex; align-items: center; gap: .25rem; flex: 1; }
+.euro input { flex: 1; }
+.line-field--top { align-items: flex-start; flex-direction: column; gap: .35rem; }
+.line-field--top label { white-space: normal; }
+
+/* ============ CONDIZIONI ============ */
+.conditions ul { margin: 0; padding-left: 1.15rem; }
+.conditions li { margin-bottom: .55rem; text-align: justify; }
+.cond-lead {
+  font-weight: 500;
+  color: var(--plum);
+  margin: 0 0 .6rem;
+}
+.inline {
+  display: inline-block;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: rgba(91,127,166,.06);
+  border-radius: 2px 2px 0 0;
+  padding: .1rem .35rem;
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 9.5pt;
+  color: var(--steel);
+  text-align: center;
+  margin: 0 .15rem;
+}
+.inline:focus { outline: none; border-color: var(--gold); background: rgba(176,141,87,.1); }
+
+/* ============ TABELLA ACCONTI ============ */
+.acconti-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: .6rem 0 .4rem;
+  font-size: 9pt;
+}
+.acconti-table th {
+  background: #f2f6fa;
+  color: var(--steel);
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 8.5pt;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: .5rem .55rem;
+  border: 1px solid var(--line);
+  text-align: left;
+}
+.acconti-table td {
+  border: 1px solid var(--line);
+  padding: .45rem .5rem;
+  vertical-align: middle;
+}
+.acconti-table .voce { font-size: 8.8pt; color: var(--plum); font-weight: 400; }
+.acconti-table input {
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+  padding: .25rem .35rem;
+  width: 100%;
+  font-size: 9pt;
+}
+
+/* ============ FIRME ============ */
+.firma-data { margin-bottom: .5rem; }
+.comma { color: var(--muted); }
+.allegati { font-size: 9.5pt; margin: .5rem 0 1.2rem; }
+.firme {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.2rem;
+  margin-top: .8rem;
+}
+.firma-box p {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 11pt;
+  color: var(--plum);
+  margin: 0 0 2.6rem;
+}
+.firma-line {
+  border-bottom: 1.2px solid var(--ink);
+  height: 1px;
+}
+
+/* ============ FOOTER FOGLIO ============ */
+.sheet-footer {
+  margin-top: auto;
+  padding-top: .8rem;
+  border-top: 1px solid var(--line-soft);
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 8pt;
+  color: var(--muted);
+  letter-spacing: .03em;
+}
+.sheet-footer span:last-child { white-space: nowrap; }
+
+/* ============ RESPONSIVE (schermo) ============ */
+@media (max-width: 860px) {
+  body { font-size: 10pt; }
+  .sheet { width: 96%; min-height: 0; padding: 1.4rem 1.1rem; }
+  .cols-2, .invitati-row, .price-row { grid-template-columns: 1fr; gap: 0; }
+  .riepilogo { grid-template-columns: 1fr; gap: 0; }
+  .firme { grid-template-columns: 1fr; gap: 1.4rem; }
+  .menu-wrap { grid-template-columns: 1fr; }
+  .menu-side {
+    flex-direction: row;
+    justify-content: space-between;
+    border-right: 0;
+    border-bottom: 1px solid var(--line-soft);
+    padding: 0 0 .5rem;
+    text-align: left;
+  }
+  .ref-row { flex-direction: column; gap: .6rem; }
+  .ref-item--right { justify-content: flex-start; }
+  .toolbar-inner { justify-content: center; text-align: center; }
+  .sheet-footer { flex-direction: column; gap: .2rem; }
+}
+
+/* ============ STAMPA / PDF ============ */
+@page { size: A4; margin: 0; }
+
+@media print {
+  html, body { background: #fff; }
+  .toolbar { display: none !important; }
+  .sheets { padding: 0; }
+  .sheet {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0;
+    box-shadow: none;
+    padding: 13mm 14mm 10mm;
+    page-break-after: always;
+    break-after: page;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+  .sheet:last-child { page-break-after: auto; break-after: auto; }
+  .line-field input,
+  .line-field textarea,
+  .ref-item input,
+  .euro input,
+  .acconti-table input,
+  .inline {
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+  .menu-editable { background: transparent !important; }
+  .company-box, .acconti-table th { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  a[href]::after { content: ""; }
+}

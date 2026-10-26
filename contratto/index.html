@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compilatore contratto eventi — Poggio Ruppelt (demo)</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============ BARRA STRUMENTI (non stampata) ============ -->
+  <div class="toolbar" id="toolbar">
+    <div class="toolbar-inner">
+      <div class="toolbar-brand">
+        <img src="../assets/images/logo-poggio-ruppelt-bianco.png" alt="" width="34" height="34">
+        <div>
+          <strong>Compilatore contratto eventi</strong>
+          <span id="saveStatus">Bozza non salvata</span>
+        </div>
+      </div>
+      <div class="toolbar-actions">
+        <button type="button" class="tbtn" id="btnSave">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 3h11l3 3v15H5z"/><path d="M8 3v5h7V3M8 21v-7h8v7"/></svg>
+          Salva bozza
+        </button>
+        <button type="button" class="tbtn" id="btnReset">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 4v6h6"/><path d="M4 10a8 8 0 112.5 5.7"/></svg>
+          Azzera
+        </button>
+        <button type="button" class="tbtn tbtn-primary" id="btnPrint">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M7 9V3h10v6M7 17H4a2 2 0 01-2-2v-4a2 2 0 012-2h16a2 2 0 012 2v4a2 2 0 01-2 2h-3"/><rect x="7" y="15" width="10" height="6" rx="1"/></svg>
+          Stampa / Salva PDF
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <main class="sheets">
+
+    <!-- ================================================================
+         PAGINA 1
+         ================================================================ -->
+    <section class="sheet" id="pagina-1">
+
+      <header class="doc-head">
+        <img src="../assets/images/logo-poggio-ruppelt.jpg" alt="Poggio Ruppelt — dal Tedesco 1930" class="doc-logo" width="120">
+        <h1 class="doc-title">Contratto</h1>
+      </header>
+
+      <div class="ref-row">
+        <div class="ref-item">
+          <label for="c-rif">Rif. / note:</label>
+          <input type="text" id="c-rif" data-save>
+        </div>
+        <div class="ref-item ref-item--right">
+          <label for="c-contratto-n">Contratto n.:</label>
+          <input type="text" id="c-contratto-n" class="w-sm" data-save>
+          <label for="c-contratto-data">del</label>
+          <input type="text" id="c-contratto-data" class="w-sm" data-save placeholder="gg/mm/aaaa">
+        </div>
+      </div>
+
+      <div class="cols-2">
+
+        <!-- 1. DATI DEL CONTRAENTE -->
+        <section class="doc-section">
+          <h2 class="section-title"><span>1.</span> Dati del contraente</h2>
+          <div class="company-box">
+            <p><strong>Ristorante Dal Tedesco srl</strong><br>
+            Via Bagni di Tritoli, 20/22 – 80070 Baia Bacoli (NA)<br>
+            P.I. 03725550630 &nbsp;·&nbsp; Tel. 081 8687175<br>
+            poggioruppelt@gmail.com &nbsp;·&nbsp; www.poggioruppelt.com</p>
+          </div>
+
+          <div class="line-field">
+            <label for="c-cognome">Cognome:</label>
+            <input type="text" id="c-cognome" data-save placeholder="es. Rossi">
+          </div>
+          <div class="line-field">
+            <label for="c-nome">Nome:</label>
+            <input type="text" id="c-nome" data-save placeholder="es. Giulia">
+          </div>
+          <div class="line-field">
+            <label for="c-tel">Tel.:</label>
+            <input type="tel" id="c-tel" data-save placeholder="es. 333 1234567">
+          </div>
+          <div class="line-field">
+            <label for="c-cf">C.F. / P.IVA:</label>
+            <input type="text" id="c-cf" data-save>
+          </div>
+          <div class="line-field">
+            <label for="c-citta">Città:</label>
+            <input type="text" id="c-citta" data-save placeholder="es. Qualiano">
+          </div>
+          <div class="line-field">
+            <label for="c-cap">CAP:</label>
+            <input type="text" id="c-cap" data-save placeholder="es. 80019">
+          </div>
+          <div class="line-field">
+            <label for="c-via">Via / n.:</label>
+            <input type="text" id="c-via" data-save>
+          </div>
+          <div class="line-field">
+            <label for="c-email">E-mail:</label>
+            <input type="email" id="c-email" data-save>
+          </div>
+        </section>
+
+        <!-- 2. DATI DELL'EVENTO -->
+        <section class="doc-section">
+          <h2 class="section-title"><span>2.</span> Dati dell'evento</h2>
+
+          <div class="line-field">
+            <label for="c-tipo">Tipo evento:</label>
+            <input type="text" id="c-tipo" data-save placeholder="es. Nozze">
+          </div>
+          <div class="line-field">
+            <label for="c-data-evento">Data evento:</label>
+            <input type="text" id="c-data-evento" data-save placeholder="gg/mm/aaaa">
+          </div>
+          <div class="line-field">
+            <label for="c-ora">Ora:</label>
+            <input type="text" id="c-ora" data-save placeholder="es. 11:00">
+          </div>
+          <div class="line-field">
+            <label for="c-nota-cerimonia">Nota / cerimonia:</label>
+            <input type="text" id="c-nota-cerimonia" data-save>
+          </div>
+          <div class="line-field">
+            <label for="c-sala">Sala / area:</label>
+            <input type="text" id="c-sala" data-save>
+          </div>
+          <div class="line-field">
+            <label for="c-referente">Referente:</label>
+            <input type="text" id="c-referente" data-save>
+          </div>
+        </section>
+      </div>
+
+      <!-- 3. MENU -->
+      <section class="doc-section menu-section">
+        <h2 class="section-title"><span>3.</span> Menu</h2>
+
+        <div class="menu-wrap">
+          <aside class="menu-side">
+            <span>Gran Buffet<br>Giardino</span>
+            <span>Terrazzo<br>Belvedere</span>
+          </aside>
+
+          <div class="menu-editable" data-save contenteditable="true" spellcheck="false">
+            <h3>Welcome Poggio Ruppelt</h3>
+            <p>Prosecco, Aperol Spritz, Succhi di frutta, Analcolici<br>
+            Montanarine; Bignè con spumanti di ricotta; Zeppoline alle alghe<br>
+            Cornettino con salumi e crema di formaggio; Quiche Lorraine<br>
+            Finger dello Chef</p>
+
+            <h3>Gran Buffet</h3>
+            <p>Angolo del casaro: Prosciutto di Parma, Salame Napoli, Rotolo di mozzarella, Bocconcini di provola affumicata, Formaggi misti<br>
+            Angolo del fornaio: Varietà di panini<br>
+            Angolo del mare freddo: Insalata di pesce spada pomodorini capperi e olive; Seppie agli agrumi e zucchine; Insalata di mare; Macedonia di salmone ananas e finocchio<br>
+            Angolo Barbecue mare / Angolo Friggitoria mare: alicette, gamberetti, baccalà</p>
+
+            <h3>Antipasto</h3>
+            <p>Crudi (ostriche e taratufi)</p>
+
+            <h3>Primi</h3>
+            <p>Linguine con Astice<br>Risotto alla pescatore</p>
+
+            <h3>Secondo</h3>
+            <p>Filetto di Orata con gamberone imperiale<br>
+            Cestino di pasta sfoglia patate pomodorini e basilico</p>
+
+            <h3>Buffet</h3>
+            <p>Frutta e Dessert · Wedding cake · Torte da taglio · Mini mousse al gelato<br>
+            Mini ricce e frolle · Graffette calde · Piccola pasticceria tradizionale</p>
+
+            <h3>Bevande e Open Bar</h3>
+            <p>Bevande: Vini Cantine Campi Flegrei, Prosecco; Acqua liscia e gassata, Coca cola e Aranciata<br>
+            Open Bar: Amaro, limoncello, Grappa e Caffè</p>
+
+            <h3>Menu bambini</h3>
+            <p>Antipasto prosciutto e mozzarella, penne al sugo, cotoletta con patatine, dolce.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. NUMERO INVITATI -->
+      <section class="doc-section">
+        <h2 class="section-title"><span>4.</span> Numero invitati</h2>
+        <div class="invitati-row">
+          <div class="line-field">
+            <label for="c-adulti">Persone probabili (adulti):</label>
+            <input type="text" id="c-adulti" data-save placeholder="es. 140">
+          </div>
+          <div class="line-field">
+            <label for="c-bambini">Numero bambini:</label>
+            <input type="text" id="c-bambini" data-save placeholder="es. 20">
+          </div>
+        </div>
+        <div class="line-field">
+          <label for="c-variazioni">Note / variazioni:</label>
+          <input type="text" id="c-variazioni" data-save>
+        </div>
+      </section>
+
+      <footer class="sheet-footer">
+        <span>Al Poggio Ruppelt · Via Bagni di Tritoli, 20/22 · 80070 Baia Bacoli (NA) · www.poggioruppelt.com · poggioruppelt@gmail.com</span>
+        <span>1/2</span>
+      </footer>
+    </section>
+
+    <!-- ================================================================
+         PAGINA 2
+         ================================================================ -->
+    <section class="sheet" id="pagina-2">
+
+      <header class="doc-head doc-head--small">
+        <img src="../assets/images/logo-poggio-ruppelt.jpg" alt="Poggio Ruppelt" class="doc-logo" width="86">
+      </header>
+
+      <!-- 5. CONDIZIONI GENERALI -->
+      <section class="doc-section">
+        <h2 class="section-title"><span>5.</span> Condizioni generali</h2>
+        <div class="conditions" data-save-content>
+          <p class="cond-lead">Il saldo sarà effettuato a fine cerimonia.</p>
+          <ul>
+            <li>Il numero definitivo degli invitati ed eventuali variazioni del Menù, devono essere comunicati al Ristorante dal Tedesco srl entro e non oltre
+              <input type="text" class="inline w-xs" value="10 (dieci)" data-save aria-label="giorni di preavviso">
+              giorni prima della data della cerimonia; per la giornata del sabato e i festivi devono essere garantiti un numero minimo di
+              <input type="text" class="inline w-xxs" value="100" data-save aria-label="minimo sabato e festivi">
+              invitati adulti paganti, mentre per i giorni infrasettimanali devono essere garantiti un numero minimo di
+              <input type="text" class="inline w-xxs" value="80" data-save aria-label="minimo infrasettimanali">
+              invitati adulti. Se il numero dei presenti nelle suddette giornate sarà inferiore al numero minimo richiesto, i contraenti saranno tenuti al pagamento del numero garantito degli invitati adulti.</li>
+
+            <li>Per gli eventi pranzo la struttura resta a disposizione degli sposi fino alle ore
+              <input type="text" class="inline w-xxs" value="22:00" data-save aria-label="orario fine pranzo">,
+              mentre per gli eventi cena la struttura resta a disposizione degli sposi fino alle ore
+              <input type="text" class="inline w-xxs" value="01:30" data-save aria-label="orario fine cena">
+              a.m. del giorno successivo.</li>
+
+            <li>I prodotti della pesca somministrati crudi sono conformi alle prescrizioni del Reg. (CE) 853/2004, Allegato III, Sezione VIII, Capitolo 3, lettera d, punto 3.</li>
+
+            <li>In mancanza di prodotto fresco, la struttura assicura la disponibilità con prodotto surgelato all'origine.</li>
+
+            <li>Se all'effettuazione della cerimonia il numero dei partecipanti risultasse inferiore al numero dei prenotati
+              <input type="text" class="inline w-xxs" value="dieci" data-save aria-label="giorni prenotati">
+              giorni prima dell'evento, il Ristorante dal Tedesco srl calcolerà il prezzo prestabilito per il numero dei prenotati con una tolleranza di
+              <input type="text" class="inline w-xxs" value="cinque" data-save aria-label="tolleranza persone">
+              persone, sempre nel rispetto del numero minimo garantito.</li>
+
+            <li>In caso di disdetta/recesso del presente contratto, la caparra pattuita sarà rimborsata entro e non oltre
+              <input type="text" class="inline w-xxs" value="7" data-save aria-label="giorni rimborso caparra">
+              giorni dalla data del presente accordo. Scaduti i termini tutti gli acconti e la caparra verranno definitivamente persi e i contraenti non avranno nulla a pretendere, salvo eventuale nuova data da definire entro
+              <input type="text" class="inline w-xxs" value="12" data-save aria-label="mesi nuova data">
+              mesi.</li>
+
+            <li>Si accettano eventi musicali solo se muniti di permesso SIAE e relativa agibilità.</li>
+
+            <li><strong>Tassativamente non sono ammessi né orchestre né cantanti neomelodici.</strong></li>
+
+            <li>Il contraente, firmando il contratto, dichiara di aver preso nota ed accettato quanto sopra e nella pagina precedente.</li>
+
+            <li>In caso di condizioni meteorologiche avverse (pioggia, vento), per garantire lo svolgimento dell'evento in massima sicurezza, le fasi del matrimonio esterne verranno automaticamente spostate dal giardino alla parte superiore della sala interna. Tale decisione è da ritenersi SOLA ed ESCLUSIVA da parte della direzione.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 6. PREZZI E ACCONTI -->
+      <section class="doc-section">
+        <h2 class="section-title"><span>6.</span> Prezzi e acconti</h2>
+
+        <div class="price-row">
+          <div class="line-field">
+            <label for="c-prezzo-persona">Prezzo per persona <em class="hint">(compreso confettata e angolo cubano)</em></label>
+            <span class="euro">€ <input type="text" id="c-prezzo-persona" data-save></span>
+          </div>
+          <div class="line-field">
+            <label for="c-prezzo-bambino">Prezzo per bambino</label>
+            <span class="euro">€ <input type="text" id="c-prezzo-bambino" data-save></span>
+          </div>
+        </div>
+
+        <table class="acconti-table">
+          <thead>
+            <tr>
+              <th>Voce</th>
+              <th>Importo €</th>
+              <th>Fatt. n°</th>
+              <th>Data fatt.</th>
+              <th>Timbro / firma</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="voce">Primo acconto e caparra penitenziaria</td>
+              <td>€ <input type="text" data-save></td>
+              <td><input type="text" data-save></td>
+              <td><input type="text" data-save></td>
+              <td><input type="text" data-save></td>
+            </tr>
+            <tr>
+              <td class="voce">Secondo acconto – semestre successivo al contratto</td>
+              <td>€ <input type="text" data-save></td>
+              <td><input type="text" data-save></td>
+              <td><input type="text" data-save></td>
+              <td><input type="text" data-save></td>
+            </tr>
+            <tr>
+              <td class="voce">Terzo acconto – II° semestre successivo al contratto</td>
+              <td>€ <input type="text" data-save></td>
+              <td><input type="text" data-save></td>
+              <td><input type="text" data-save></td>
+              <td><input type="text" data-save></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 class="sub-title">Riepilogo economico <em class="hint">(da compilare a mano o da gestionale)</em></h3>
+        <div class="riepilogo">
+          <div class="line-field">
+            <label for="c-totale">Totale preventivato €:</label>
+            <input type="text" id="c-totale" data-save>
+          </div>
+          <div class="line-field">
+            <label for="c-acconti">Acconti versati €:</label>
+            <input type="text" id="c-acconti" data-save>
+          </div>
+          <div class="line-field">
+            <label for="c-saldo">Saldo a fine cerimonia €:</label>
+            <input type="text" id="c-saldo" data-save>
+          </div>
+        </div>
+
+        <div class="line-field line-field--top">
+          <label for="c-accordi">Accordi particolari / clausole aggiuntive:</label>
+          <textarea id="c-accordi" rows="4" data-save></textarea>
+        </div>
+      </section>
+
+      <!-- 7. FIRME -->
+      <section class="doc-section">
+        <h2 class="section-title"><span>7.</span> Firme</h2>
+        <div class="firma-data">
+          <div class="line-field">
+            <label for="c-luogo">Data:</label>
+            <input type="text" id="c-luogo" data-save placeholder="Bacoli" class="w-md">
+            <span class="comma">,</span>
+            <input type="text" id="c-data-firma" data-save placeholder="gg/mm/aaaa" class="w-md">
+          </div>
+        </div>
+        <p class="allegati">Il presente contratto si compone di 2 pagine e di
+          <input type="text" class="inline w-xxs" id="c-allegati" data-save aria-label="numero allegati">
+          allegati. Letto, confermato e sottoscritto.</p>
+
+        <div class="firme">
+          <div class="firma-box">
+            <p>Ristorante Dal Tedesco srl</p>
+            <div class="firma-line"></div>
+          </div>
+          <div class="firma-box">
+            <p>Firma del contraente</p>
+            <div class="firma-line"></div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="sheet-footer">
+        <span>Al Poggio Ruppelt · Via Bagni di Tritoli, 20/22 · 80070 Baia Bacoli (NA) · www.poggioruppelt.com · poggioruppelt@gmail.com</span>
+        <span>2/2</span>
+      </footer>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
