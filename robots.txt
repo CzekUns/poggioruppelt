@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://CzekUns.github.io/poggioruppelt/sitemap.xml
